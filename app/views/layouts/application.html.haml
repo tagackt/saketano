@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %title Saketano
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = javascript_include_tag 'jquery.raty'
+
+  %body{role: "document"}
+    / Fixed navbar
+    %nav.navbar.navbar-inverse{role: "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "/"} Saketano
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            - if user_signed_in?
+              %li{:class => "#{'active' if current_page?(home_path)}"}
+                = link_to "Home", home_path
+            - if user_signed_in?
+              %li{:class => "#{'active' if current_page?(edit_user_path(current_user))}"}
+                = link_to 'アカウント設定', edit_user_path(current_user)
+              %li{:class => "#{'active' if current_page?(edit_user_registration_path)}"}
+                = link_to 'パスワード変更', edit_user_registration_path
+              %li
+                = link_to "ログアウト", destroy_user_session_path, method: :delete
+            - else
+              %li{:class => "#{'active' if current_page?(new_user_registration_path)}"}
+                = link_to "サインアップ", new_user_registration_path
+              %li{:class => "#{'active' if current_page?(new_user_session_path)}"}
+                = link_to "ログイン", new_user_session_path
+    %div.container{:role => "main"}
+      - if notice
+        %p.alert.alert-notice= notice
+      - if alert
+        %p.alert.alert-error= alert
+      = yield

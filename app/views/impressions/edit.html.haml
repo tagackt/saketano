@@ -1,0 +1,7 @@
+%h1 感想の編集、削除
+
+= render 'form'
+
+= link_to '削除する', @impression, :method => :delete, :data => { :confirm => '本当に削除しますか？' }
+
+= link_to '戻る', home_path

@@ -1,0 +1,11 @@
+%h3 感想を登録するお酒の名前（商品名）を選択してください
+
+%table
+
+  - @liquors.each do |liquor|
+    %tr
+      %td= link_to "#{liquor.name}(#{liquor.name_kana})#{liquor.category.name}", new_liquor_impression_path(liquor), data: {"no-turbolink" => true}
+
+%br
+
+= link_to '一覧にないので、お酒の名前（商品名）を登録', new_brand_liquor_path, :class => "btn btn-primary active"

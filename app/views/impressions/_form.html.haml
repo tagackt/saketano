@@ -1,0 +1,34 @@
+= form_for shallow_args(@liquor, @impression) do |f|
+  - if @impression.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@impression.errors.count, "error")} prohibited this impression from being saved:"
+      %ul
+        - @impression.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :蔵
+    = @impression.liquor.brewery.try(:name)
+    -#TODO こんな感じで何回もクエリを発行してよいのか？値のセットはviewのhiddenのでやるべき？controllerでやるべき？
+    = f.hidden_field :brewery_id , value: @impression.liquor.brewery.try(:id)
+  .field
+    = f.label :銘柄
+    = @impression.liquor.name
+    = f.hidden_field :liquor_id , value: @impression.liquor.id
+  .field
+    = f.label :感想
+    #star_rank{"data-score" => "2.5"}
+    = f.hidden_field :total_score
+  .field
+    = f.label :メモ
+    = f.text_area :note
+  .field
+    = f.label :写真
+    = image_tag(@impression.image_url) if @impression.image?
+    = f.file_field :image
+    = f.hidden_field :image_cache
+  .actions
+    = f.submit '登録'
+:javascript
+  $('#star_rank').raty('score', 3);
+  $('#star_rank').raty('move', 3);
+  -#TODO 編集画面にうまく、星が表示されない

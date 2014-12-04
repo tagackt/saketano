@@ -1,0 +1,8 @@
+%p#notice= notice
+
+%p
+  %b
+    = "#{@user.get_user_name}さんのページ"
+
+- impressions = @user.impressions.with_liquor
+= render partial: 'shared/impression_list', locals: { impressions: impressions }

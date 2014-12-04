@@ -1,0 +1,7 @@
+
+= link_to '感想を登録', brands_path
+%br
+
+- impressions = current_user.impressions.with_liquor
+= render partial: 'shared/impression_list', locals: { impressions: impressions }
+

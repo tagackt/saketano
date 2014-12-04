@@ -1,0 +1,9 @@
+%table
+  - brands.each do |brand|
+    %tr
+      %td= link_to "#{brand.name}(#{brand.name_kana})#{brand.brewery.try(:name)}", brand_liquors_path(brand)
+%p
+
+-#入力文字を引き継いで登録したい・・
+- if brands.empty?
+  = link_to '一覧にないので、お酒の銘柄（ブランド）を登録', new_brand_path, :class => "btn btn-primary active"

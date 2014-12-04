@@ -1,0 +1,9 @@
+- impressions.each do |impression|
+  %div.col-lg-4
+    %div.jumbotron
+      %div= impression.liquor.name
+      %div= image_tag impression.image.thumb.url
+      %div= raty_stars(impression.total_score)
+      %div= impression.note
+      %div= impression.updated_at.strftime("%Y年 %m月 %d日")
+      %div= link_to impression.user.get_user_name, user_path(impression.user)
