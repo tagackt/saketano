@@ -1,7 +1,10 @@
+%section= render 'shared/stats'
 
-= link_to '感想を登録', brands_path
+= link_to '感想を登録', brands_path, :class => "btn btn-primary active"
+
+%br
 %br
 
-- impressions = current_user.impressions.with_liquor
+- impressions = current_user.feed.with_liquor
 = render partial: 'shared/impression_list', locals: { impressions: impressions }
 

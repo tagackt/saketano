@@ -14,8 +14,7 @@ class ImpressionsController < ApplicationController
   end
 
   def create
-    @impression = Impression.new(impression_params)
-    @impression.user_id = current_user.id
+    @impression = current_user.impressions.build(impression_params)
     if @impression.save
       redirect_to home_path , notice: '感想を登録しました。'
     else

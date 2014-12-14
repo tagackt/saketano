@@ -1,0 +1,11 @@
+- @user ||= current_user
+%a{:href => following_user_path(@user)}
+  フォロー中
+  %strong#following
+    = @user.followed_users.count
+  人
+%a{:href => followers_user_path(@user)}
+  フォロワー
+  %strong#followers
+    = @user.followers.count
+  人

@@ -4,5 +4,11 @@
   %b
     = "#{@user.get_user_name}さんのページ"
 
+= render 'shared/stats'
+= render 'follow_form' if signed_in?
+
+%br
+%br
+
 - impressions = @user.impressions.with_liquor
 = render partial: 'shared/impression_list', locals: { impressions: impressions }
