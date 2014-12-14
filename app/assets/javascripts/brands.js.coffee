@@ -12,7 +12,6 @@ $ ->
     input = $.trim($(this).val())
     if preInput isnt input and input.length isnt 0
       clearTimeout preFunc
-      preFunc = setTimeout(ajaxPost(input), 500)
+      preFunc = setTimeout(ajaxPost(input), 400)
     preInput = input
     return
-
