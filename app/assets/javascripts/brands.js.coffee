@@ -15,3 +15,4 @@ $ ->
       preFunc = setTimeout(ajaxPost(input), 500)
     preInput = input
     return
+
