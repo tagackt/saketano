@@ -5,7 +5,7 @@ class BrandsController < ApplicationController
   end
 
   def ajax_brand_list
-    @brands = Brand.with_brewery.where("name_kana like '#{params[:inc_search]}%'").order(:name_kana)
+    @brands = Brand.with_brewery.where("name_kana like '#{params[:inc_searcha]}%'").order(:name_kana)
   end
 
   def new
