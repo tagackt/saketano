@@ -16,5 +16,5 @@ CSV.foreach('db/seeds-data/brands.csv') do |row|
 end
 
 CSV.foreach('db/seeds-data/liquors.csv') do |row|
-  Liquor.create!(id: row[0], name: row[1].to_s + ' ' + row[3].to_s + ' ' + row[4].to_s , name_kana: row[2],  category_id: row[6], brewery_id: row[5],brand_id: row[10], brand_name: row[1])
+  Liquor.create!(id: row[0], name: row[1].to_s + ' ' + row[3].to_s + ' ' + row[4].to_s , name_kana: row[2],  category_id: row[6], brewery_id: row[5],brand_id: row[10])
 end
