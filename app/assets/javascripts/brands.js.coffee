@@ -6,7 +6,7 @@ $ ->
     $.ajax
       url: "/brands/ajax_brand_list"
       type: "GET"
-      data: ("search_text=" + input)
+      data: ("inc_search=" + input)
     return
   $("#inc_search").on "keyup", ->
     input = $.trim($(this).val())
