@@ -8,7 +8,6 @@
   .field
     = f.label :蔵
     = @impression.liquor.brewery.try(:name)
-    -#TODO こんな感じで何回もクエリを発行してよいのか？値のセットはviewのhiddenのでやるべき？controllerでやるべき？
     = f.hidden_field :brewery_id , value: @impression.liquor.brewery.try(:id)
   .field
     = f.label :銘柄

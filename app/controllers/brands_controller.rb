@@ -25,4 +25,5 @@ class BrandsController < ApplicationController
     def brand_params
       params.require(:brand).permit(:name, :name_kana, :brewery_id, :updated_seq, :updated_by, :updated_at)
     end
+
 end
