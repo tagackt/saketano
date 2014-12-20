@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+.liquor-title{
+    font-size: 120%;
+    font-weight: bold;
+    height: 28px;
+    text-align: center;
+}
+.impression-back {
+    width: 240px;
+    height: 350px;
+    padding: 10px;
+    margin: 10px;
+    color: inherit;
+    background-color: #eeeeee;
+}
+

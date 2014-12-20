@@ -1,8 +1,8 @@
 - impressions.each do |impression|
-  %div.col-lg-4
-    %div.jumbotron
-      %div= impression.liquor.name
-      %div= image_tag impression.image.thumb.url
+  %div.col-md-3
+    %div.impression-back
+      %div.liquor-title= impression.liquor.name
+      %div= image_tag impression.image.thumb.url, :size => "200x200"
       %div= raty_stars(impression.total_score)
       %div= impression.note
       %div= impression.updated_at.strftime("%Y年 %m月 %d日")
