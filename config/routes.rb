@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get  :ajax_brand_list
     end
     resources :liquors, only: [:index, :new, :create], shallow: true do
-      resources :impressions, except: [:index]
+      resources :impressions, except: [:index, :show]
     end
   end
 
