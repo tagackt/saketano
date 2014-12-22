@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root to: 'welcome#index'
-  get 'welcome/index'
   get 'home', to: 'home#index'
 
   resources :brands, only: [:index, :new, :create] do
