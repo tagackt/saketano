@@ -7,7 +7,7 @@ class LiquorsController < ApplicationController
   end
 
   def new
-    @liquor = @brand.liquors.build()
+    @liquor = @brand.liquors.build
   end
 
   def create
