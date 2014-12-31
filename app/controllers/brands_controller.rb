@@ -1,11 +1,12 @@
 class BrandsController < ApplicationController
   before_action :authenticate_user!
 
+  # TODO: impressionの作成画面に当たるので、 impression にアクションがある方が良いのでは？
   def index
   end
 
   def ajax_brand_list
-    @brands = Brand.with_brewery.where("name_kana like '#{params[:inc_search]}%'").order(:name_kana)
+    @brands = Brand.includes(:brewery).where('name_kana like :query', query: "#{params[:inc_search]}%").order(:name_kana)
   end
 
   def new
