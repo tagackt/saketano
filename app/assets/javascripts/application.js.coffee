@@ -26,3 +26,6 @@ $ ->
     targetType: 'number',
     targetKeep: true,
   });
+
+#  alert("hoge");
+#  $('#star_rank').raty('move', 5);

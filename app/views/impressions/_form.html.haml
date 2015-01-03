@@ -15,8 +15,9 @@
     = f.hidden_field :liquor_id , value: @impression.liquor.id
   .field
     = f.label :感想
-    #star_rank{"data-score" => "2.5"}
+    #star_rank
     = f.hidden_field :total_score
+    #total_score(data-total-score="#{@impression.total_score}")
   .field
     = f.label :メモ
     = f.text_area :note
@@ -32,8 +33,10 @@
     %li
       - if !@impression.id.nil?
         = link_to '削除する', @impression, :method => :delete, :data => { :confirm => '本当に削除しますか？' }, :class => "btn btn-warning active"
-
-:javascript
-  $('#star_rank').raty('score', 3);
-  $('#star_rank').raty('move', 3);
-  -#TODO 編集画面にうまく、星が表示されない
+  :javascript
+    //TODO 本当は、外に出したい
+    (function() {
+      $(function() {
+        return $('#star_rank').raty('score', $('#total_score').data("total-score"));
+      });
+    }).call(this);
