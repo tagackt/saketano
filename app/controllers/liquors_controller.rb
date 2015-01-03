@@ -3,7 +3,7 @@ class LiquorsController < ApplicationController
   before_action :set_brand
 
   def index
-    @liquors = @brand.liquors.with_category.order(:name)
+    @liquors = @brand.liquors.includes(:category).order(:name)
   end
 
   def new

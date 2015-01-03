@@ -5,6 +5,6 @@
 %br
 %br
 
-- impressions = current_user.feed.with_liquor
+- impressions = current_user.feed.includes(:liquor)
 = render partial: 'shared/impression_list', locals: { impressions: impressions }
 

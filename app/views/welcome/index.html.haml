@@ -1,2 +1,2 @@
-- impressions = Impression.with_user.all.limit(20)
+- impressions = Impression.includes(:user).all.limit(20)
 = render partial: 'shared/impression_list', locals: { impressions: impressions }

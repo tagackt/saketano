@@ -10,5 +10,5 @@
 %br
 %br
 
-- impressions = @user.impressions.with_liquor
+- impressions = @user.impressions.includes(:liquor)
 = render partial: 'shared/impression_list', locals: { impressions: impressions }
