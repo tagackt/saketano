@@ -2,6 +2,7 @@ class BrandsController < ApplicationController
   before_action :authenticate_user!
 
   # TODO: impressionの作成画面に当たるので、 impression にアクションがある方が良いのでは？
+  # impressionにアクションを移動しようとすると、url id渡しが難しくなるため断念
   def index
   end
 
