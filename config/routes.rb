@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:show] do
     member do
       get :following, :followers
     end

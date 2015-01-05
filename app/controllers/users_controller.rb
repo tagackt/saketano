@@ -5,17 +5,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  def edit
-  end
-
-  def update
-    if @user.update(user_params)
-      redirect_to edit_user_path, notice: '更新しました。'
-    else
-      render :edit
-    end
-  end
-
   def following
     @title = "フォロー中"
     @users = @user.followed_users
