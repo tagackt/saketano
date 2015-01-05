@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   enum sex: %i(male female other)
 
+  validates :name, presence: true, length: { maximum: 50 }
+
   def get_user_name
     name.present? ? name : "名なし#{id}"
   end

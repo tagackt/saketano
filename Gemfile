@@ -39,7 +39,7 @@ group :development do
   gem 'hirb-unicode'
   gem 'pry-rails'
   gem 'binding_of_caller'
-  # gem "binding_of_caller", platforms: [:mri_19, :mri_20, :rbx]
+  gem 'html2haml'
 end
 
 group :development, :test do
