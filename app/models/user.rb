@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :user_image, UserImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and
   devise :database_authenticatable, :registerable,

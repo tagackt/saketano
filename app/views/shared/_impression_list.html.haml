@@ -1,11 +1,14 @@
 - impressions.each do |impression|
-  %div.col-md-3
-    %div.impression-back
-      %div.liquor-title= impression.liquor.name
-      %div= image_tag impression.image.thumb.url, :size => "200x200"
-      %div= raty_stars(impression.total_score)
-      %div= impression.note
-      %div= link_to impression.user.get_user_name, user_path(impression.user)
-      %div= impression.updated_at.strftime("%Y年 %m月 %d日")
+  .col-md-3
+    .impression-back
+      .liquor-title= impression.liquor.name
+      = image_tag impression.image.thumb.url, :size => "200x200"
+      = raty_stars(impression.total_score)
+      %br
+      = impression.note
+      %br
+      = image_tag(impression.user.user_image.thumb.url) if impression.user.user_image.thumb.url.present?
+      = link_to impression.user.get_user_name, user_path(impression.user)
+      = impression.updated_at.strftime("%Y/%m/%d")
       - if current_user?(impression.user)
-        %div= link_to "修正・削除する", edit_impression_path(impression)
+        = link_to "修正・削除する", edit_impression_path(impression)
