@@ -29,7 +29,7 @@
   %ul.list-inline
     %li
       .actions
-        = f.submit '登録', :class => "btn btn-primary active"
+        = f.submit '登録', :class => "btn btn-primary"
     %li
       - if !@impression.id.nil?
         = link_to '削除する', @impression, :method => :delete, :data => { :confirm => '本当に削除しますか？' }, :class => "btn btn-warning active"
