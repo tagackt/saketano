@@ -7,7 +7,7 @@
       %br
       = impression.note
       %br
-      = image_tag(impression.user.user_image.thumb.url) if impression.user.user_image.thumb.url.present?
+      = link_to image_tag(impression.user.user_image.thumb.url, :size => "70x70"), user_path(impression.user)
       = link_to impression.user.get_user_name, user_path(impression.user)
       = impression.updated_at.strftime("%Y/%m/%d")
       - if current_user?(impression.user)

@@ -2,14 +2,13 @@
 
 %p
   %b
-    = image_tag(@user.user_image.url) if @user.user_image.url.present?
-    = "#{@user.get_user_name}さんのページ"
+    = image_tag(@user.user_image.url, :class => 'img-thumbnail')
+    = @user.get_user_name
 
 = render 'shared/stats'
 = render 'follow_form' if signed_in?
 
-%br
-%br
+%p
 
 - impressions = @user.impressions.includes(:liquor)
 = render partial: 'shared/impression_list', locals: { impressions: impressions }
