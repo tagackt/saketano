@@ -1,0 +1,38 @@
+%h2
+  アカウント設定
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = f.error_notification
+  .form-inputs
+    .form-group
+      = f.label 'プロフィール写真'
+      = image_tag(current_user.user_image.url) if current_user.user_image.url.present?
+      = f.file_field :user_image
+      = f.hidden_field :user_image_cache
+    .form-group
+      = f.input :email, required: true, autofocus: true
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %p
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .form-group
+      = f.input :name, required: true, label: 'ユーザ名'
+    .form-group
+      = f.input :sex, label: '性別',as: :radio_buttons, item_wrapper_class: 'inline'
+    .form-group
+      = f.label '誕生年月'
+      = f.date_select :birthday , start_year: 1900, end_year: Date.today.year
+    .form-group
+      = f.label :birth_prefecture_id, '生まれた都道府県'
+      = f.collection_select(:birth_prefecture_id,Prefecture.all, :id, :name)
+    .form-group
+      = f.label :current_prefecture_id, '現在の都道府県'
+      = f.collection_select(:current_prefecture_id,Prefecture.all, :id, :name)
+    .form-group
+      = f.input :password, autocomplete: "off", hint: "パスワードを変更しないのであれば、入力しないでください", required: false, label: '変更後パスワード'
+      = f.input :password_confirmation, required: false, label: '変更後パスワード（確認）'
+    .form-group
+      = f.input :current_password, hint: "更新のため、現在のパスワードを入力してください", required: true, label: '現在のパスワード'
+  .form-actions
+    = f.button :submit, "更新", :class => 'btn btn-primary'
+%h3 退会
+%p
+  #{link_to "退会しますか？", registration_path(resource_name), data: { confirm: "本当に退会しますか？" }, method: :delete}

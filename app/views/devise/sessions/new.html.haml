@@ -1,0 +1,13 @@
+%h2 ログイン
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-inputs
+    .form-group
+      = f.input :email, required: false, autofocus: true, label: 'メールアドレス'
+    .form-group
+      = f.input :password, required: false, label: 'パスワード'
+    .form-group
+      = f.input :remember_me, as: :boolean , label: false,inline_label: 'ログイン状態を維持する'  if devise_mapping.rememberable?
+  .form-actions
+    = f.button :submit, "ログイン", :class => 'btn btn-primary'
+%p
+= render "devise/shared/links"
