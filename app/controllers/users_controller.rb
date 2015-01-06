@@ -6,13 +6,11 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "フォロー中"
     @users = @user.followed_users
     render 'show_follow'
   end
 
   def followers
-    @title = "フォロワー"
     @users = @user.followers
     render 'show_follow'
   end

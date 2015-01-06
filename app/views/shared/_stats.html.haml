@@ -2,22 +2,24 @@
 %nav.navbar.navbar-default
   .container
     .navbar-header
-      %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
     .navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li.active
+        %li{:class => "#{'active' if current_page?(user_url(@user))}"}
+          %a{:href => user_path(@user)}
+            感想
+            %br
+            %strong
+              = @user.impressions.count
+        %li{:class => "#{'active' if current_page?(following_user_path(@user))}"}
           %a{:href => following_user_path(@user)}
             フォロー
             %br
             %strong#following
               = @user.followed_users.count
-        %li
+        %li{:class => "#{'active' if current_page?(followers_user_path(@user))}"}
           %a{:href => followers_user_path(@user)}
             フォロワー
             %br
             %strong#followers
               = @user.followers.count
+

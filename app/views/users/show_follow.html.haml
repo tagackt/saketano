@@ -1,6 +1,10 @@
-- provide(:title, @title)
+
+%p
+  %b
+    = image_tag(@user.user_image.url, :class => 'img-thumbnail')
+    = @user.get_user_name
+
 = render 'shared/stats'
-%h3= @title
 - if @users.any?
   - @users.each do |user|
     %br

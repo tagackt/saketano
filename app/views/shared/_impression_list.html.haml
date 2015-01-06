@@ -3,12 +3,13 @@
     .impression-back
       .liquor-title= impression.liquor.name
       = image_tag impression.image.thumb.url, :size => "200x200"
-      = raty_stars(impression.total_score)
-      %br
+      %div
+        = raty_stars(impression.total_score)
+        = impression.updated_at.strftime("%Y/%m/%d")
       = impression.note
-      %br
-      = link_to image_tag(impression.user.user_image.thumb.url, :size => "70x70"), user_path(impression.user)
-      = link_to impression.user.get_user_name, user_path(impression.user)
-      = impression.updated_at.strftime("%Y/%m/%d")
-      - if current_user?(impression.user)
-        = link_to "修正・削除する", edit_impression_path(impression)
+      %div
+        = link_to image_tag(impression.user.user_image.thumb.url, :size => "50x50"), user_path(impression.user)
+        = link_to impression.user.get_user_name, user_path(impression.user)
+        - if current_user?(impression.user)
+          = link_to "修正・削除", edit_impression_path(impression)
+
