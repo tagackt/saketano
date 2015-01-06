@@ -8,4 +8,5 @@
 - if @users.any?
   - @users.each do |user|
     %br
+    = link_to image_tag(user.user_image.thumb.url, :size => "50x50"), user_path(user)
     = link_to user.get_user_name, user
