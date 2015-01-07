@@ -1,4 +1,4 @@
 %section= render 'shared/stats'
-- impressions = current_user.feed.includes(:liquor).includes(:user)
+- impressions = current_user.feed.includes(:liquor).includes(:user).order(:created_at).reverse_order
 = render partial: 'shared/impression_list', locals: { impressions: impressions }
 

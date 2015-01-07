@@ -1,2 +1,2 @@
-- impressions = Impression.includes(:user).includes(:liquor).all.limit(20)
+- impressions = Impression.includes(:user).includes(:liquor).all.order(:created_at).reverse_order.limit(20)
 = render partial: 'shared/impression_list', locals: { impressions: impressions }

@@ -8,5 +8,5 @@
 
 %p
 
-- impressions = @user.impressions.includes(:liquor)
+- impressions = @user.impressions.order(:created_at).reverse_order.includes(:liquor)
 = render partial: 'shared/impression_list', locals: { impressions: impressions }
