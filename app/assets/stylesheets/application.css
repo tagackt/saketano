@@ -20,6 +20,11 @@
     height: 28px;
     text-align: center;
 }
+.liquor-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .impression-back {
     width: 240px;
     height: 350px;
@@ -28,6 +33,11 @@
     color: inherit;
     background-color: #eeeeee;
 }
+
+.middle-tab{
+    text-align: center;
+}
+
 
 .navbar-collapse.collapse {
     display: block!important;

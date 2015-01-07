@@ -6,20 +6,23 @@
       %ul.nav.navbar-nav
         %li{:class => "#{'active' if current_page?(user_url(@user))}"}
           %a{:href => user_path(@user)}
-            感想
-            %br
-            %strong
-              = @user.impressions.count
+            .middle-tab
+              感想
+              %br
+              %strong
+                = @user.impressions.count
         %li{:class => "#{'active' if current_page?(following_user_path(@user))}"}
           %a{:href => following_user_path(@user)}
-            フォロー
-            %br
-            %strong#following
-              = @user.followed_users.count
+            .middle-tab
+              フォロー
+              %br
+              %strong#following
+                = @user.followed_users.count
         %li{:class => "#{'active' if current_page?(followers_user_path(@user))}"}
           %a{:href => followers_user_path(@user)}
-            フォロワー
-            %br
-            %strong#followers
-              = @user.followers.count
+            .middle-tab
+              フォロワー
+              %br
+              %strong#followers
+                = @user.followers.count
 

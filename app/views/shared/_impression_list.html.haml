@@ -2,11 +2,11 @@
   .col-md-3
     .impression-back
       .liquor-title= impression.liquor.name
-      = image_tag impression.image.thumb.url, :size => "200x200"
+      = image_tag impression.image.thumb.url, :size => "165x165", :class => 'liquor-image'
       %div
         = raty_stars(impression.total_score)
         = impression.updated_at.strftime("%Y/%m/%d")
-      = impression.note
+      = truncate(impression.note, :length => 60)
       %div
         = link_to image_tag(impression.user.user_image.thumb.url, :size => "50x50"), user_path(impression.user)
         = link_to impression.user.get_user_name, user_path(impression.user)
