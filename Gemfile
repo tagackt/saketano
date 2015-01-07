@@ -14,6 +14,7 @@ gem "bootstrap-sass"
 gem "font-awesome-rails"
 gem "simple_form"
 gem "carrierwave"
+gem 'fog'
 # gem "rmagick"
 gem "mini_magick"
 gem "gretel"
