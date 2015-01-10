@@ -19,7 +19,7 @@
             - if user_signed_in?
               %li{:class => "#{'active' if current_page?(home_path)}"}
                 = link_to home_path do
-                  %i{:class => 'fa fa-home'} &nbsp; Home
+                  = fa_icon 'home', text: "Home"
             - if user_signed_in?
               %li{:class => "#{'active' if current_page?(edit_user_registration_path(current_user))}"}
                 = link_to 'アカウント設定', edit_user_registration_path(current_user)
@@ -39,4 +39,5 @@
       - if alert
         %p.alert.alert-error= alert
       = yield
+
 

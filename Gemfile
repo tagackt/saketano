@@ -24,6 +24,7 @@ gem "devise-i18n"
 gem "cancan"
 gem "record_with_operator"
 gem 'enum_help'
+gem 'dotenv-rails'
 
 group :development do
   gem "better_errors"
